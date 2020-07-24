@@ -8,6 +8,7 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 .App {
@@ -47,6 +48,11 @@ body,
       width: 100%;
     }
   }
+
+  p {
+    font-weight: bold;
+  }
+  
 }
 
 .delete {
@@ -97,3 +103,39 @@ form {
     margin-top: 16px;
   }
 }
+
+
+.loginForm {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+
+  legend {
+    padding-left: 40px;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: underline;
+    margin-bottom: 16px;
+  }
+
+  label {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 36px 4px 40px;
+  }
+
+  input, button {
+    width: 100px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+.add-color {
+  .textBold {
+    font-weight: bold;
+  }
+}
+
