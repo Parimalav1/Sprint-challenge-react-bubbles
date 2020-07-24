@@ -40,17 +40,17 @@ const Login = () => {
 
   return (
     <>
-      <h1>Welcome to the Bubble App!</h1>
-      <div className='form'>
+      <h1 className="textcenter">Welcome to the Bubble App!</h1>
+      <div className='loginForm'>
         <form onSubmit={login}>
-          <input
+          <input className="input"
             placeholder='Username'
             type="text"
             name="username"
             value={values.username}
             onChange={handleChange}
           />
-          <input
+          <input className="input"
             type="password"
             name="password"
             value={values.password}

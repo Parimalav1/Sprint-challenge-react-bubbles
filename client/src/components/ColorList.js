@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import axioswithAuth from "../utils/axioswithAuth";
 import { useHistory } from "react-router-dom";
+import ColorForm from './ColorForm';
 
 const initialColor = {
   color: "",
   code: { hex: "" }
 };
 
-const ColorList = ({ colors, updateColors, removeFromColorList }) => {
+const ColorList = ({ colors, updateColors, removeFromColorList, setColorList }) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
@@ -45,8 +46,6 @@ const ColorList = ({ colors, updateColors, removeFromColorList }) => {
     axioswithAuth()
       .delete(`http://localhost:5000/api/colors/${color.id}`)
       .then(res => {
-        // removeFromSavedList(res.data);
-        // removeFromSavedList(movie.id);
         removeFromColorList(color);
         push('/');
       })
@@ -55,7 +54,7 @@ const ColorList = ({ colors, updateColors, removeFromColorList }) => {
 
   return (
     <div className="colors-wrap">
-      <p>colors</p>
+      <p className="textBold">Colors</p>
       <ul>
         {colors.map(color => (
           <li key={color.color} onClick={() => editColor(color)}>
@@ -106,8 +105,9 @@ const ColorList = ({ colors, updateColors, removeFromColorList }) => {
           </div>
         </form>
       )}
-      <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+      <ColorForm setColorList={setColorList}/>
+      <div className="spacer" />
     </div>
   );
 };
